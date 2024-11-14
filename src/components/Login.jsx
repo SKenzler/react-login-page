@@ -3,25 +3,30 @@ import { useState, useEffect } from "react";
 import users from "../utilities/users";
 import { IoIosLock } from "react-icons/io";
 import { BiSolidUser } from "react-icons/bi";
-import { FiLogIn } from "react-icons/fi";
+import { FiLogIn, FiLogOut } from "react-icons/fi";
 import planet from "../assets/purple-planet.png";
+import galaxy from "../assets/galaxy-planet.jpg";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [logedIn, setLoggedIn] = useState(false);
 
-  useEffect(() => {
-    if (username === users.username && password === users.password) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const user = users.find(
+      (user) => user.username === username && user.password === password
+    );
+    if (user) {
       setLoggedIn(true);
     }
-  }, [username, password]);
+  };
 
   return (
-    <form>
-      <div className="w-full h-screen flex justify-center items-center bg-gradient-to-r from-blue-800 to-indigo-900">
-        <div className="w-3/4 h-[34em] flex flex-col md:flex-row justify-center items-center backdrop-blur-md bg-slate-100/10 rounded-tr-2xl rounded-bl-2xl py-4">
-          {username === users.username && password === users.password ? (
+    <div className="w-full h-screen flex justify-center items-center bg-gradient-to-r from-blue-800 to-indigo-900">
+      <div className="w-3/4 h-[34em] flex flex-col md:flex-row justify-center items-center backdrop-blur-md bg-slate-100/10 rounded-tr-2xl rounded-bl-2xl py-4">
+        {!logedIn ? (
+          <form>
             <div className="w-full flex flex-col justify-center items-center mb-4">
               <img
                 className="w-40 md:w-64 m-2"
@@ -36,22 +41,7 @@ const Login = () => {
                 Please login to your account
               </p>
             </div>
-          ) : (
-            <div className="w-full flex flex-col justify-center items-center">
-              <img
-                className="w-40 md:w-64 m-2"
-                src={planet}
-                alt="purple planet"
-              />
-              <h1 className="w-64 text-center text-2xl text-slate-100 font-semibold">
-                Welcome back
-              </h1>
-              <p className="w-64 text-center text-sm text-slate-100">
-                Let's get exploring
-              </p>
-            </div>
-          )}
-          {!logedIn ? (
+
             <div className="w-full flex flex-col justify-center items-center">
               <div className="w-64 flex justify-between items-center my-2">
                 <h1 className="w-64 text-left text-lg font-bold tracking-wider text-slate-100">
@@ -107,6 +97,7 @@ const Login = () => {
               <button
                 className="w-64 flex justify-center items-center text-sm rounded-md px-2 py-1 bg-slate-950 text-slate-100 hover:bg-blue-950 mt-8 mb-4"
                 type="submit"
+                onClick={(e) => handleSubmit(e)}
               >
                 <span className="mr-2">
                   <FiLogIn />
@@ -114,18 +105,38 @@ const Login = () => {
                 Login
               </button>
             </div>
-          ) : (
-            <div>
-              <img
-                className="w-40 md:w-64 m-2"
-                src={planet}
-                alt="purple planet"
-              />
+          </form>
+        ) : (
+          <div className="w-full flex flex-col justify-center items-center">
+            <div className="w-full flex flex-col justify-center items-center">
+              <img className="w-40 md:w-64 m-2" src={galaxy} alt="galaxy" />
+              <h1 className="w-64 text-center text-2xl text-slate-100 font-semibold">
+                Welcome back {username}
+              </h1>
+              <h2 className="w-64 text-center text-lg text-slate-100">
+                The galaxy is waiting for you
+              </h2>
+              <p className="w-64 text-center text-sm text-slate-100">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae
+                excepturi vitae assumenda commodi perferendis veritatis, aliquid
+                saepe blanditiis? Id molestiae libero, harum voluptatum
+                voluptatem consequatur repellendus provident ad quasi beatae
+                accusantium hic!
+              </p>
             </div>
-          )}
-        </div>
+            <button
+              className="w-64 flex justify-center items-center text-sm rounded-md px-2 py-1 bg-slate-950 text-slate-100 hover:bg-blue-950 mt-8 mb-4"
+              type="submit"
+            >
+              <span className="mr-2">
+                <FiLogOut />
+              </span>
+              Log out
+            </button>
+          </div>
+        )}
       </div>
-    </form>
+    </div>
   );
 };
 
