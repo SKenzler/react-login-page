@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useId } from "react";
 import users from "../utilities/users";
 import { IoIosLock } from "react-icons/io";
 import { BiSolidUser } from "react-icons/bi";
@@ -11,6 +11,9 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [logedIn, setLoggedIn] = useState(false);
+  const [loginError, setLoginError] = useState(false);
+  const userId = useId();
+  const passId = useId();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,7 +22,17 @@ const Login = () => {
     );
     if (user) {
       setLoggedIn(true);
+    } else {
+      setLoginError(true);
+      setUsername("");
+      setPassword("");
     }
+  };
+
+  const handleLogout = (e) => {
+    setLoggedIn(false);
+    setUsername("");
+    setPassword("");
   };
 
   return (
@@ -56,7 +69,7 @@ const Login = () => {
               </div>
               <label
                 className="w-64 text-slate-100 text-sm text-left mt-2 mb-1"
-                htmlFor="username"
+                htmlFor={userId}
               >
                 Username
               </label>
@@ -64,7 +77,7 @@ const Login = () => {
                 <input
                   className="w-64 rounded-md placeholder:text-slate-500 px-2 py-1 mb-2"
                   type="text"
-                  id="username"
+                  id={userId}
                   value={username}
                   placeholder="username"
                   required
@@ -76,7 +89,7 @@ const Login = () => {
               </div>
               <label
                 className="w-64 text-slate-100 text-sm text-left mt-2 mb-1"
-                htmlFor="password"
+                htmlFor={passId}
               >
                 Password
               </label>
@@ -84,7 +97,7 @@ const Login = () => {
                 <input
                   className="w-64 rounded-md placeholder:text-slate-500 px-2 py-1 mb-2"
                   type="password"
-                  id="password"
+                  id={passId}
                   value={password}
                   placeholder="password"
                   required
@@ -94,6 +107,14 @@ const Login = () => {
                   <BiSolidUser color="#708090" size={18} />
                 </span>
               </div>
+              {loginError && (
+                <p
+                  className="w-64 flex justify-center items-center text-xs text-slate-100
+                 bg-red-600 rounded-md p-2 mt-1"
+                >
+                  The username or password was not found. Please try again.
+                </p>
+              )}
               <button
                 className="w-64 flex justify-center items-center text-sm rounded-md px-2 py-1 bg-slate-950 text-slate-100 hover:bg-blue-950 mt-8 mb-4"
                 type="submit"
@@ -108,31 +129,41 @@ const Login = () => {
           </form>
         ) : (
           <div className="w-full flex flex-col justify-center items-center">
-            <div className="w-full flex flex-col justify-center items-center">
-              <img className="w-40 md:w-64 m-2" src={galaxy} alt="galaxy" />
-              <h1 className="w-64 text-center text-2xl text-slate-100 font-semibold">
-                Welcome back {username}
-              </h1>
-              <h2 className="w-64 text-center text-lg text-slate-100">
-                The galaxy is waiting for you
-              </h2>
-              <p className="w-64 text-center text-sm text-slate-100">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae
-                excepturi vitae assumenda commodi perferendis veritatis, aliquid
-                saepe blanditiis? Id molestiae libero, harum voluptatum
-                voluptatem consequatur repellendus provident ad quasi beatae
-                accusantium hic!
-              </p>
+            <div className="w-full flex flex-col sm:flex-row justify-center items-center p-2">
+              <div className="w-full flex flex-col justify-center items-center my-2">
+                <img
+                  className="w-72 sm:w-80 object-cover pt-4"
+                  src={galaxy}
+                  alt="galaxy"
+                />
+
+                <h1 className="w=72 text-center text-2xl text-slate-100 font-semibold p-4">
+                  Welcome back {username}
+                </h1>
+              </div>
+              <div className="w-full flex flex-col justify-center items-center">
+                <h2 className="w-72 text-center text-lg text-slate-100 font-bold p-2">
+                  The galaxy is waiting for you
+                </h2>
+                <p className="w-64 text-left text-sm text-slate-100 text-pretty py-2">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae
+                  excepturi vitae assumenda commodi perferendis veritatis,
+                  aliquid saepe blanditiis? Id molestiae libero, harum
+                  voluptatum voluptatem consequatur repellendus provident ad
+                  quasi beatae accusantium hic!
+                </p>
+              </div>
+              <button
+                className="w-64 flex justify-center items-center text-sm rounded-md px-2 py-1 bg-slate-950 text-slate-100 hover:bg-blue-950 mt-8 mb-4"
+                type="submit"
+                onClick={(e) => handleLogout(e)}
+              >
+                <span className="mr-2">
+                  <FiLogOut />
+                </span>
+                Log out
+              </button>
             </div>
-            <button
-              className="w-64 flex justify-center items-center text-sm rounded-md px-2 py-1 bg-slate-950 text-slate-100 hover:bg-blue-950 mt-8 mb-4"
-              type="submit"
-            >
-              <span className="mr-2">
-                <FiLogOut />
-              </span>
-              Log out
-            </button>
           </div>
         )}
       </div>
