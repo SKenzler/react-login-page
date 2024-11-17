@@ -37,37 +37,37 @@ const Login = () => {
   };
 
   return (
-    <div className="w-full h-lvh flex justify-center items-center bg-gradient-to-r from-blue-800 to-indigo-900">
+    <div className="w-100 h-lvh flex justify-center items-center bg-gradient-to-r from-blue-800 to-indigo-900">
       {!logedIn ? (
-        <form>
-          <div className="w-64 h-[34em] flex flex-col md:flex-row justify-center items-center backdrop-blur-md bg-slate-100/10 rounded-tr-2xl rounded-bl-2xl py-4">
-            <div className="w-full flex flex-col justify-center items-center mb-4">
-              <img
-                className="w-40 md:w-64 m-2"
-                src={planet}
-                alt="purple planet"
-              />
-              <h1 className="w-64 text-center text-2xl text-slate-100 font-semibold">
-                Get ready to explore
+        <div className="w-4/5 h-[34em] flex flex-col md:flex-row justify-center items-center backdrop-blur-md bg-slate-100/10 rounded-tr-2xl rounded-bl-2xl py-4">
+          <div className="w-full flex flex-col justify-center items-center mb-4">
+            <img
+              className="w-40 md:w-64 m-2"
+              src={planet}
+              alt="purple planet"
+            />
+            <h1 className="w-64 text-center text-2xl text-slate-100 font-semibold">
+              Get ready to explore
+            </h1>
+
+            <p className="w-64 text-center text-sm text-slate-100">
+              Please login to your account
+            </p>
+          </div>
+
+          <div className="w-full flex flex-col justify-center items-center">
+            <div className="w-64 flex justify-between items-center my-2">
+              <h1 className="w-64 text-left text-lg font-bold tracking-wider text-slate-100">
+                Login
               </h1>
-
-              <p className="w-64 text-center text-sm text-slate-100">
-                Please login to your account
-              </p>
+              <a
+                href="/"
+                className="w-64 text-sm text-slate-100 text-right cursor-pointer"
+              >
+                Create an account
+              </a>
             </div>
-
-            <div className="w-full flex flex-col justify-center items-center">
-              <div className="w-64 flex justify-between items-center my-2">
-                <h1 className="w-64 text-left text-lg font-bold tracking-wider text-slate-100">
-                  Login
-                </h1>
-                <a
-                  href="/"
-                  className="w-64 text-sm text-slate-100 text-right cursor-pointer"
-                >
-                  Create an account
-                </a>
-              </div>
+            <form>
               <label
                 className="w-64 text-slate-100 text-sm text-left mt-2 mb-1"
                 htmlFor={userId}
@@ -126,51 +126,45 @@ const Login = () => {
                 </span>
                 Login
               </button>
-            </div>
+            </form>
           </div>
-        </form>
+        </div>
       ) : (
-        <div className="w-3/4 h-[34em] flex flex-col md:flex-row justify-center items-center  py-4">
+        <div className="w-3/4 h-auto bg-black flex flex-col md:flex-row justify-center items-center m-10">
+          <div className="w-full flex flex-col justify-center items-center m-2">
+            <img
+              className="w-64 h-64 sm:w-96 sm:h-96 object-cover rounded-full pt-4"
+              src={galaxy}
+              alt="galaxy"
+            />
+          </div>
           <div className="w-full flex flex-col justify-center items-center">
-            <div className="w-full flex flex-col sm:flex-row justify-center items-center p-2">
-              <div className="w-full flex flex-col justify-center items-center my-2">
-                <img
-                  className="w-72 sm:w-80 object-cover rounded-full pt-4"
-                  src={galaxy}
-                  alt="galaxy"
-                />
-
-                <h1 className="w=full text-center text-4xl text-yellow-500 font-black uppercase tracking-wide p-5">
-                  Welcome back {username}
-                </h1>
-              </div>
-              <div className="w-full flex flex-col justify-center items-center">
-                <h2 className="w-72 text-center text-lg text-slate-100 font-semibold italic tracking-wide p-2">
-                  The galaxy is waiting for you
-                </h2>
-                <div className="w-full flex justify-center items-center gap-4">
-                  <FaFacebook color="#F1F5F9" size={24} />{" "}
-                  <FaInstagram color="#F1F5F9" size={24} />
-                </div>
-                <p className="w-64 text-left text-sm text-slate-100 text-pretty py-2">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae
-                  excepturi vitae assumenda commodi perferendis veritatis,
-                  aliquid saepe blanditiis? Id molestiae libero, harum
-                  voluptatum voluptatem consequatur repellendus provident ad
-                  quasi beatae accusantium hic!
-                </p>
-                <button
-                  className="w-64 flex justify-end items-center text-sm  text-slate-100 hover:text-slate-400 mb-4"
-                  type="submit"
-                  onClick={(e) => handleLogout(e)}
-                >
-                  <span className="mr-2">
-                    <FiLogOut />
-                  </span>
-                  Log out
-                </button>
-              </div>
+            <h1 className="w-full text-center text-4xl text-yellow-500 font-black uppercase tracking-wide p-5">
+              Discover the wonders of the Universe
+            </h1>
+            <h2 className="w-72 text-center text-lg text-slate-100 font-semibold italic tracking-wide p-2">
+              The galaxy is waiting for you
+            </h2>
+            <div className="w-full flex justify-center items-center gap-4">
+              <FaFacebook color="#F1F5F9" size={24} />{" "}
+              <FaInstagram color="#F1F5F9" size={24} />
             </div>
+            <p className="w-64 text-left text-sm text-slate-100 text-pretty py-2">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae
+              excepturi vitae assumenda commodi perferendis veritatis, aliquid
+              saepe blanditiis? Id molestiae libero, harum voluptatum voluptatem
+              consequatur repellendus provident ad quasi beatae accusantium hic!
+            </p>
+            <button
+              className="w-64 flex justify-end items-center text-sm  text-slate-100 hover:text-slate-400 mb-4"
+              type="submit"
+              onClick={(e) => handleLogout(e)}
+            >
+              <span className="mr-2">
+                <FiLogOut />
+              </span>
+              Log out
+            </button>
           </div>
         </div>
       )}
