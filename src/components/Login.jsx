@@ -37,7 +37,7 @@ const Login = () => {
   };
 
   return (
-    <div className="w-100 h-100 flex justify-center items-center bg-gradient-to-r from-blue-800 to-indigo-900">
+    <div className="w-100 h-screen flex justify-center items-center bg-gradient-to-r from-blue-800 to-indigo-900">
       {!logedIn ? (
         <div className="w-4/5 h-[34em] flex flex-col md:flex-row justify-center items-center backdrop-blur-md bg-slate-100/10 rounded-tr-2xl rounded-bl-2xl py-4">
           <div className="w-full flex flex-col justify-center items-center mb-4">
@@ -130,7 +130,7 @@ const Login = () => {
           </div>
         </div>
       ) : (
-        <div className="w-4/5 h-100 bg-black flex flex-col md:flex-row justify-center items-center py-4 m-2">
+        <div className="w-4/5 h-lvh flex flex-col md:flex-row justify-center items-center py-4 m-2">
           <div className="w-full flex flex-col justify-center items-center m-2">
             <img
               className="w-64 h-64 lg:w-96 lg:h-96 object-cover rounded-full pt-4"
