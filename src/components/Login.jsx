@@ -34,10 +34,11 @@ const Login = () => {
     setLoggedIn(false);
     setUsername("");
     setPassword("");
+    setLoginError(false);
   };
 
   return (
-    <div className="w-screen h-max sm:h-lvh flex justify-center items-center bg-gradient-to-r from-blue-800 to-indigo-900">
+    <div className="w-screen min-h-screen flex justify-center items-center bg-gradient-to-r from-blue-800 to-indigo-900">
       {!logedIn ? (
         <div className="w-4/5 h-[34em] flex flex-col md:flex-row justify-cnter items-center backdrop-blur-md bg-slate-100/10 rounded-tr-2xl rounded-bl-2xl py-4">
           <div className="w-full flex flex-col justify-center items-center mb-4">
