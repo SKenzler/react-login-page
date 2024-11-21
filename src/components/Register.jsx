@@ -23,7 +23,7 @@ const Register = () => {
 
   return (
     <form>
-      <div className="w-full h-screen flex justify-center items-center bg-gradient-to-r from-blue-800 to-indigo-900">
+      <div className="w-screen h-lvh flex justify-center items-center bg-gradient-to-r from-blue-800 to-indigo-900">
         <div className="w-3/4 h-[36em] flex flex-col md:flex-row justify-center items-center backdrop-blur-md bg-slate-100/10 rounded-tr-2xl rounded-bl-2xl py-4">
           <div className="w-full flex flex-col justify-center items-center mb-4">
             <img
