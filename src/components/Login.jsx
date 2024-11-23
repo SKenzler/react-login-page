@@ -1,10 +1,12 @@
 import React from "react";
 import { useState, useId } from "react";
+import { Link } from "react-router-dom";
 import users from "../utilities/users";
 import { IoIosLock } from "react-icons/io";
 import { BiSolidUser } from "react-icons/bi";
 import { FiLogIn, FiLogOut } from "react-icons/fi";
 import { FaFacebook, FaInstagram } from "react-icons/fa6";
+import register from "../components/Register";
 import planet from "../assets/purple-planet.png";
 import galaxy from "../assets/blue-galaxy.jpg";
 
@@ -61,12 +63,13 @@ const Login = () => {
               <h1 className="w-64 text-left text-lg font-bold tracking-wider text-slate-100">
                 Login
               </h1>
-              <a
-                href="/"
+
+              <Link
+                to="/register"
                 className="w-64 text-sm text-slate-100 text-right cursor-pointer"
               >
                 Create an account
-              </a>
+              </Link>
             </div>
             <form>
               <label
