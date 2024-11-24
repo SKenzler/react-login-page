@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { useId } from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import users from "../utilities/users";
 import { FiLogIn } from "react-icons/fi";
-import { IoIosLock } from "react-icons/io";
 import { BiSolidUser } from "react-icons/bi";
 import planet from "../assets/purple-planet.png";
 
@@ -12,13 +12,33 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [registerError, setRegisterError] = useState(false);
+  const [userNameError, setUserNameError] = useState(false);
+  const [user, setUser] = useState([]);
   const usernameId = useId();
   const passwordId = useId();
   const confirmPasswordId = useId();
-  const handleRegister = (e) => {
+  const navigate = useNavigate();
+  const handleRegister = async (e) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
+
+    const user = users.find((user) => user.username === username);
+    if (user) {
+      setUserNameError(true);
+      setUsername("");
+      setPassword("");
+      setConfirmPassword("");
+    } else if (password !== confirmPassword) {
       setRegisterError(true);
+      setUsername("");
+      setPassword("");
+      setConfirmPassword("");
+    } else {
+      setUsername(username);
+      setPassword(password);
+      const newUser = [...users, { username, password }];
+      setUser(newUser);
+      navigate("/");
+      console.log(user);
     }
   };
 
@@ -63,10 +83,16 @@ const Register = () => {
                 required
                 onChange={(e) => setUsername(e.target.value)}
               />
-              <span className="absolute top-2 right-0 mr-2">
-                <IoIosLock color="#708090" size={18} />
-              </span>
             </div>
+            {userNameError && (
+              <p
+                className="w-64 flex justify-center items-center text-xs text-slate-100
+       bg-red-600 rounded-md p-2 mt-1"
+              >
+                The username you selected already exists. Please try again.
+              </p>
+            )}
+
             <label
               className="w-64 text-slate-100 text-sm text-left mt-2 mb-1"
               htmlFor={passwordId}
@@ -112,7 +138,7 @@ const Register = () => {
                 className="w-64 flex justify-center items-center text-xs text-slate-100
        bg-red-600 rounded-md p-2 mt-1"
               >
-                The username you selected already exists. Please try again.
+                The password you entered did not match. Please try again.{" "}
               </p>
             )}
             <button
@@ -129,6 +155,9 @@ const Register = () => {
         </div>
       </div>
     </form>
+    <>
+    <users user_id={3} username={username} password={password} />
+    </>
   );
 };
 
