@@ -1,6 +1,6 @@
 import React from "react";
-import { useState } from "react";
-import { useId } from "react";
+import { useState, useId, useContext } from "react";
+import UserContext from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
 import users from "../utilities/users";
 import { FiLogIn } from "react-icons/fi";
@@ -13,12 +13,13 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [registerError, setRegisterError] = useState(false);
   const [userNameError, setUserNameError] = useState(false);
-  const [user, setUser] = useState([]);
   const usernameId = useId();
   const passwordId = useId();
   const confirmPasswordId = useId();
   const navigate = useNavigate();
-  const handleRegister = async (e) => {
+  const { newUser } = useContext(UserContext);
+  const { setNewUser } = useContext(UserContext);
+  const handleRegister = (e) => {
     e.preventDefault();
 
     const user = users.find((user) => user.username === username);
@@ -33,12 +34,8 @@ const Register = () => {
       setPassword("");
       setConfirmPassword("");
     } else {
-      setUsername(username);
-      setPassword(password);
-      const newUser = [...users, { username, password }];
-      setUser(newUser);
+      setNewUser({ username, password });
       navigate("/");
-      console.log(user);
     }
   };
 
@@ -144,7 +141,7 @@ const Register = () => {
             <button
               className="w-64 flex justify-center items-center text-sm rounded-md px-2 py-1 bg-slate-950 text-slate-100 hover:bg-blue-950 mt-8 mb-4"
               type="submit"
-              onClick={(e) => handleRegister(e)}
+              onClick={handleRegister}
             >
               <span className="mr-2">
                 <FiLogIn />
@@ -155,9 +152,6 @@ const Register = () => {
         </div>
       </div>
     </form>
-    <>
-    <users user_id={3} username={username} password={password} />
-    </>
   );
 };
 
