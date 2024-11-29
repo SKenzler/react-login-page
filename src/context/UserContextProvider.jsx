@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useState } from "react";
 import UserContext from "./UserContext";
 
 const UserContextProvider = ({ children }) => {
-  const [newUser, setNewUser] = useState(null);
+  const [newUser, setNewUser] = useState([]);
+  const addUser = (newUser) => [...newUser, { newUser }];
+
   return (
-    <UserContext.Provider value={{ newUser, setNewUser }}>
-      {children}
-    </UserContext.Provider>
+    <UserContext.Provider value={{ addUser }}>{children}</UserContext.Provider>
   );
 };
 

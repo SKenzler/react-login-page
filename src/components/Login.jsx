@@ -1,13 +1,11 @@
 import React from "react";
 import { useState, useId, useContext } from "react";
-import UserContext from "../context/UserContext";
 import { Link } from "react-router-dom";
 import users from "../utilities/users";
 import { IoIosLock } from "react-icons/io";
 import { BiSolidUser } from "react-icons/bi";
 import { FiLogIn, FiLogOut } from "react-icons/fi";
 import { FaFacebook, FaInstagram } from "react-icons/fa6";
-import register from "../components/Register";
 import planet from "../assets/purple-planet.png";
 import galaxy from "../assets/blue-galaxy.jpg";
 
@@ -135,10 +133,10 @@ const Login = () => {
           </div>
         </div>
       ) : (
-        <div className="w-4/5 h-full flex flex-col md:flex-row justify-center items-center">
-          <div className="w-full flex flex-col justify-center items-center m-2">
+        <div className="w-full h-full flex flex-col md:flex-row justify-center items-center">
+          <div className="w-4/5 flex flex-col justify-center items-center m-2">
             <img
-              className="w-64 h-64 lg:w-96 lg:h-96 object-cover shadow-2xl shadow-slate-900 rounded-lg"
+              className="w-64 h-72 lg:w-80 lg:h-96 object-cover shadow-2xl shadow-slate-900 rounded-lg"
               src={galaxy}
               alt="galaxy"
             />
@@ -150,16 +148,16 @@ const Login = () => {
             <h2 className="w-72 text-center text-lg text-slate-100 font-semibold italic tracking-wide p-2">
               The galaxy is waiting for you
             </h2>
-            <div className="w-full flex justify-center items-center gap-4">
-              <FaFacebook color="#F1F5F9" size={24} />{" "}
-              <FaInstagram color="#F1F5F9" size={24} />
-            </div>
             <p className="w-64 text-left text-sm text-slate-100 text-pretty py-2">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae
               excepturi vitae assumenda commodi perferendis veritatis, aliquid
               saepe blanditiis? Id molestiae libero, harum voluptatum voluptatem
               consequatur repellendus provident ad quasi beatae accusantium hic!
             </p>
+            <div className="w-full flex justify-center items-center gap-4">
+              <FaFacebook color="#F1F5F9" size={24} />{" "}
+              <FaInstagram color="#F1F5F9" size={24} />
+            </div>
             <button
               className="w-64 flex justify-end items-center text-sm  text-yellow-500 hover:text-slate-400 mb-4"
               type="submit"
