@@ -3,11 +3,14 @@ import { useState } from "react";
 import UserContext from "./UserContext";
 
 const UserContextProvider = ({ children }) => {
-  const [newUser, setNewUser] = useState([]);
-  const addUser = (newUser) => [...newUser, { newUser }];
+  const [newUser, setNewUser] = useState(null);
+
+  // const addUser = (prevUser) => [...prevUser, { newUser }];
 
   return (
-    <UserContext.Provider value={{ addUser }}>{children}</UserContext.Provider>
+    <UserContext.Provider value={{ newUser, setNewUser }}>
+      {children}
+    </UserContext.Provider>
   );
 };
 

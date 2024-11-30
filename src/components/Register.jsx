@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { useState, useId, useContext } from "react";
 import UserContext from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
@@ -13,12 +13,13 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [registerError, setRegisterError] = useState(false);
   const [userNameError, setUserNameError] = useState(false);
-  const [newUser, setNewUser] = useState(null);
+  const { newUser, setNewUser } = useContext(UserContext);
   const usernameId = useId();
   const passwordId = useId();
+  const newUserId = Date.now();
   const confirmPasswordId = useId();
   const navigate = useNavigate();
-  const { addUser } = useContext(UserContext);
+  //const { addUser } = useContext(UserContext);
   const handleRegister = (e) => {
     e.preventDefault();
 
@@ -34,9 +35,9 @@ const Register = () => {
       setPassword("");
       setConfirmPassword("");
     } else {
-      setNewUser({ username, password });
-      addUser({ newUser });
-      console.log(username, password, newUser, users);
+      setNewUser({ newUserId, username, password });
+      // addUser({ newUser });
+      console.log(username, password, newUserId, newUser, users);
       navigate("/");
     }
   };
