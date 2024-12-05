@@ -7,18 +7,16 @@ const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState([]);
   const [newUser, setNewUser] = useState({});
 
-  const addUser = useCallback(
-    (newUser) => {
-      setUser((prevUser) => [...prevUser, newUser]);
-    },
-    [setUser]
-  );
+  const addUser = (newUser) => {
+    setUser((prevUser) => {
+      return [...prevUser, newUser];
+    });
+  };
 
   useEffect(() => {
-    if (newUser.usename && newUser.password) {
-      addUser(newUser);
-    }
-  }, [newUser.username, newUser.password, addUser]);
+    //newUser && addUser(newUser);
+    //console.log(users, newUser);
+  }, [newUser, addUser]);
 
   const value = { newUser, setNewUser, addUser, users };
 

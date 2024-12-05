@@ -36,8 +36,8 @@ const Register = () => {
     } else {
       setNewUser({ user_id, username, password });
       addUser(newUser);
-      console.log(newUser, users);
-      console.log(username, password, user_id, newUser, users);
+      //console.log(newUser, users);
+      //console.log(username, password, user_id, newUser, users);
       navigate("/");
     }
   };
