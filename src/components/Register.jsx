@@ -35,9 +35,8 @@ const Register = () => {
       setConfirmPassword("");
     } else {
       setNewUser({ user_id, username, password });
-      addUser(newUser);
-      //console.log(newUser, users);
-      //console.log(username, password, user_id, newUser, users);
+      console.log(users);
+      console.log(username, password, user_id, newUser, users);
       navigate("/");
     }
   };
@@ -81,6 +80,7 @@ const Register = () => {
                 value={username}
                 placeholder="username"
                 required
+                pattern="[A-Za-z]{25}"
                 onChange={(e) => setUsername(e.target.value)}
               />
             </div>
@@ -107,6 +107,7 @@ const Register = () => {
                 value={password}
                 placeholder="password"
                 required
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                 onChange={(e) => setPassword(e.target.value)}
               />
               <span className="absolute top-2 right-0 mr-2">
@@ -138,7 +139,9 @@ const Register = () => {
                 className="w-64 flex justify-center items-center text-xs text-slate-100
        bg-red-600 rounded-md p-2 mt-1"
               >
-                The password you entered did not match. Please try again.{" "}
+                The password you enter must contain 8 or more characters, at
+                least one uppercase letter, one lowercase letter, and one
+                number. The passwords must also match. Please try again.{" "}
               </p>
             )}
             <button
