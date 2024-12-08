@@ -3,13 +3,13 @@ import UserContext from "./UserContext";
 import users from "../utilities/users";
 
 const UserContextProvider = ({ children }) => {
-  const [user, setUser] = useState([]);
+  const [users, setUsers] = useState([]);
   const [newUser, setNewUser] = useState({});
   const prevUser = useRef(newUser);
 
   const addUser = (newUser) => {
-    setUser((prevUser) => {
-      return [...prevUser, newUser];
+    setUsers((prevUsers) => {
+      [...prevUsers, newUser];
     });
   };
 

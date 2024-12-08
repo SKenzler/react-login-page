@@ -34,6 +34,8 @@ const Register = () => {
       setPassword("");
       setConfirmPassword("");
     } else {
+      const { users, setUsers } = useContext(UserContext);
+
       setNewUser({ user_id, username, password });
       console.log(users);
       console.log(username, password, user_id, newUser, users);
