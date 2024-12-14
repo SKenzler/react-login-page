@@ -6,8 +6,7 @@ import { IoIosLock } from "react-icons/io";
 import { BiSolidUser } from "react-icons/bi";
 import { FiLogIn, FiLogOut } from "react-icons/fi";
 import { FaFacebook, FaInstagram } from "react-icons/fa6";
-import planet from "../assets/purple-planet.png";
-import galaxy from "../assets/blue-galaxy.jpg";
+import galaxy from "../assets/galaxy.jpg";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -133,14 +132,7 @@ const Login = () => {
           </div>
         </div>
       ) : (
-        <div className="w-full h-full flex flex-col md:flex-row justify-center items-center">
-          <div className="w-4/5 flex flex-col justify-center items-center m-2">
-            <img
-              className="w-64 h-72 lg:w-80 lg:h-96 object-cover shadow-2xl shadow-slate-900 rounded-lg"
-              src={galaxy}
-              alt="galaxy"
-            />
-          </div>
+        <div className="bg-cover bg-[url('https://images.unsplash.com/photo-1566345984367-fa2ba5cedc17?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] w-4/5 h-[34em] flex flex-col md:flex-row justify-cnter items-center backdrop-blur-md bg-slate-100/10 rounded-tr-2xl rounded-bl-2xl py-4">
           <div className="w-full flex flex-col justify-center items-center">
             <h1 className="w-full text-center text-4xl text-yellow-500 font-black uppercase tracking-wide p-5">
               Discover the wonders of the Universe

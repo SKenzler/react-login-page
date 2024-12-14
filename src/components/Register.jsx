@@ -13,7 +13,7 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [registerError, setRegisterError] = useState(false);
   const [userNameError, setUserNameError] = useState(false);
-  const { newUser, setNewUser, addUser, users } = useContext(UserContext);
+  const { newUser, setNewUser, addUser } = useContext(UserContext);
   const usernameId = useId();
   const passwordId = useId();
   const user_id = Date.now();
@@ -34,11 +34,10 @@ const Register = () => {
       setPassword("");
       setConfirmPassword("");
     } else {
-      const { users, setUsers } = useContext(UserContext);
-
       setNewUser({ user_id, username, password });
+      addUser(newUser);
       console.log(users);
-      console.log(username, password, user_id, newUser, users);
+      console.log(username, password, user_id, newUser, user);
       navigate("/");
     }
   };
