@@ -1,27 +1,22 @@
 import React, { useEffect, useState, useRef } from "react";
 import UserContext from "./UserContext";
-import users from "../utilities/users";
+import userData from "../utilities/users";
 
 const UserContextProvider = ({ children }) => {
-  const [users, setUsers] = useState([]);
-  const [newUser, setNewUser] = useState({});
-  const prevUser = useRef(newUser);
-
-  const addUser = (newUser) => {
-    setUsers((prevUsers) => {
-      [...prevUsers, newUser];
-    });
-  };
+  const [newUser, setNewUser] = useState([]);
+  const [users, setUsers] = useState(userData);
+  const mountRef = useRef(false);
 
   useEffect(() => {
-    if (newUser !== prevUser.current) {
-      addUser(newUser);
-      prevUser.current = newUser;
-      console.log(newUser, users);
+    if (mountRef.current) {
+      setUsers((prevUsers) => [...prevUsers, newUser]);
+    } else {
+      mountRef.current = true;
     }
+    console.log("this useEffect ran", users);
   }, [newUser]);
 
-  const value = { newUser, setNewUser, addUser, users };
+  const value = { newUser, setNewUser, users };
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };

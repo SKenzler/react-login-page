@@ -5,8 +5,7 @@ import users from "../utilities/users";
 import { IoIosLock } from "react-icons/io";
 import { BiSolidUser } from "react-icons/bi";
 import { FiLogIn, FiLogOut } from "react-icons/fi";
-import { FaFacebook, FaInstagram } from "react-icons/fa6";
-import galaxy from "../assets/galaxy.jpg";
+import planet from "../assets/purple-planet.png";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -87,7 +86,7 @@ const Login = () => {
                   onChange={(e) => setUsername(e.target.value)}
                 />
                 <span className="absolute top-2 right-0 mr-2">
-                  <IoIosLock color="#708090" size={18} />
+                  <IoIosLock color="#708090" size={14} />
                 </span>
               </div>
               <label
@@ -107,7 +106,7 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
                 <span className="absolute top-2 right-0 mr-2">
-                  <BiSolidUser color="#708090" size={18} />
+                  <BiSolidUser color="#708090" size={14} />
                 </span>
               </div>
               {loginError && (
@@ -132,26 +131,30 @@ const Login = () => {
           </div>
         </div>
       ) : (
-        <div className="bg-cover bg-[url('https://images.unsplash.com/photo-1566345984367-fa2ba5cedc17?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] w-4/5 h-[34em] flex flex-col md:flex-row justify-cnter items-center backdrop-blur-md bg-slate-100/10 rounded-tr-2xl rounded-bl-2xl py-4">
+        <div className="justify-center items-center min-w-full min-h-screen bg-cover bg-no-repeat bg-center bg-[url('https://images.unsplash.com/photo-1566345984367-fa2ba5cedc17?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] w-4/5 h-[34em] flex flex-col md:flex-row justify-cnter items-centter py-4">
           <div className="w-full flex flex-col justify-center items-center">
-            <h1 className="w-full text-center text-4xl text-yellow-500 font-black uppercase tracking-wide p-5">
+            <h1 className="w-full text-center text-6xl md:text-8xl text-yellow-500 font-black uppercase tracking-wide p-5 m-2">
               Discover the wonders of the Universe
             </h1>
-            <h2 className="w-72 text-center text-lg text-slate-100 font-semibold italic tracking-wide p-2">
+            <h2 className="w-full text-center text-3xl lg:text-4xl text-slate-100 font-semibold italic tracking-wide p-2">
               The galaxy is waiting for you
             </h2>
-            <p className="w-64 text-left text-sm text-slate-100 text-pretty py-2">
+            <p className="w-2/3 lg:w-1/3 text-left text-base lg:text-xl  text-slate-100 text-pretty py-2">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae
               excepturi vitae assumenda commodi perferendis veritatis, aliquid
               saepe blanditiis? Id molestiae libero, harum voluptatum voluptatem
               consequatur repellendus provident ad quasi beatae accusantium hic!
             </p>
             <div className="w-full flex justify-center items-center gap-4">
-              <FaFacebook color="#F1F5F9" size={24} />{" "}
-              <FaInstagram color="#F1F5F9" size={24} />
+              <button
+                type="button"
+                className="w-64 flex justify-center items-center text-sm rounded-md px-2 py-1 bg-yellow-400 text-slate-950 font-medium hover:bg-yellow-200 mt-8 mb-4 transition ease-in-out delay-100"
+              >
+                Explore
+              </button>
             </div>
             <button
-              className="w-64 flex justify-end items-center text-sm  text-yellow-500 hover:text-slate-400 mb-4"
+              className="w-2/3 flex justify-end items-center text-sm  text-yellow-500 hover:text-slate-400 m-8"
               type="submit"
               onClick={(e) => handleLogout(e)}
             >

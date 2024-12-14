@@ -35,9 +35,7 @@ const Register = () => {
       setConfirmPassword("");
     } else {
       setNewUser({ user_id, username, password });
-      addUser(newUser);
-      console.log(users);
-      console.log(username, password, user_id, newUser, user);
+
       navigate("/");
     }
   };
