@@ -39,17 +39,15 @@ const Login = () => {
   };
 
   return (
-    <div className="w-screen min-h-screen flex justify-center items-center bg-gradient-to-r from-blue-800 to-indigo-900">
+    <div className="w-screen min-h-screen flex justify-center items-center bg-gradient-to-r from-blue-800 to-indigo-900 overflow-hidden">
       {!logedIn ? (
-        <div className="w-4/5 h-[34em] flex flex-col md:flex-row justify-cnter items-center backdrop-blur-md bg-slate-100/10 rounded-tr-2xl rounded-bl-2xl py-4">
-          <div className="w-full flex flex-col justify-center items-center mb-4">
-            <img
-              className="w-40 md:w-64 m-2"
-              src={planet}
-              alt="purple planet"
-            />
-            <h1 className="w-64 text-center text-2xl text-slate-100 font-semibold">
-              Get ready to explore
+        <div className="w-4/5 h-[48em] flex flex-col md:flex-row justify-center items-center backdrop-blur-md bg-slate-100/10 rounded-tr-2xl rounded-bl-2xl p-4">
+          <div className="w-full flex flex-col justify-center items-center">
+            <div className="w-4/5 h-[18em] lg:w-full lg:h-[30em] flex justify-center items-center m-3">
+              <Spline scene="https://prod.spline.design/WR530bub4gGY1J-O/scene.splinecode" />
+            </div>
+            <h1 className="w-3/4 text-center text-3xl text-slate-100 font-bold uppercase py-2">
+              It's time to take your website go next level
             </h1>
 
             <p className="w-64 text-center text-sm text-slate-100">
@@ -133,39 +131,44 @@ const Login = () => {
           </div>
         </div>
       ) : (
-        <div className="justify-center flex flex-col items-center min-w-full min-h-screen py-4">
-          <div className="w-full flex-col justify-center items-center">
-            <Spline scene="https://prod.spline.design/1XKTfRVswXCRzhWJ/scene.splinecode" />
-            <h1 className="w-full text-center text-6xl md:text-8xl text-yellow-500 font-black uppercase tracking-wide p-5 m-2">
-              Discover the wonders of the Universe
-            </h1>
-            <h2 className="w-full text-center text-3xl lg:text-4xl text-slate-100 font-semibold italic tracking-wide p-2">
-              The galaxy is waiting for you
-            </h2>
-            <p className="w-2/3 lg:w-1/3 text-left text-base lg:text-xl  text-slate-100 text-pretty py-2">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae
-              excepturi vitae assumenda commodi perferendis veritatis, aliquid
-              saepe blanditiis? Id molestiae libero, harum voluptatum voluptatem
-              consequatur repellendus provident ad quasi beatae accusantium hic!
-            </p>
-            <div className="w-full flex justify-center items-center gap-4">
+        <div className="w-full h-full flex justify-center items-center m-2">
+          <div className="flex flex-col sm:flex-row bg-black justify-center items-center p-4">
+            <div className="w-[30em] h-[30em] lg:w-[50em] lg:h-[30em] flex flex-col justify-center items-center m-2">
               <button
-                type="button"
-                className="w-64 flex justify-center items-center text-sm rounded-md px-2 py-1 bg-yellow-400 text-slate-950 font-medium hover:bg-yellow-200 mt-8 mb-4 transition ease-in-out delay-100"
+                className="w-full flex justify-end items-center text-sm  text-yellow-500 hover:text-slate-400 px-2 py-4"
+                type="submit"
+                onClick={(e) => handleLogout(e)}
               >
-                Explore
+                <span className="mr-2">
+                  <FiLogOut />
+                </span>
+                Log out
               </button>
+              <Spline scene="https://prod.spline.design/1XKTfRVswXCRzhWJ/scene.splinecode" />
             </div>
-            <button
-              className="w-2/3 flex justify-end items-center text-sm  text-yellow-500 hover:text-slate-400 m-8"
-              type="submit"
-              onClick={(e) => handleLogout(e)}
-            >
-              <span className="mr-2">
-                <FiLogOut />
-              </span>
-              Log out
-            </button>
+            <div className="w-full flex flex-col justify-center items-center m-4 p-1">
+              <h1 className="w-full text-center text-6xl lg:text-7xl text-yellow-500 font-black uppercase tracking-wide p-5 m-2">
+                Making Static Webpages come to life
+              </h1>
+              <h2 className="w-full text-center text-3xl lg:text-3xl text-slate-100 font-semibold italic tracking-wide p-2">
+                Using animation to enhance user experience{" "}
+              </h2>
+              <p className="w-full lg:w-2/3 text-left text-base lg:text-lg  text-slate-100 text-pretty p-2">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae
+                excepturi vitae assumenda commodi perferendis veritatis, aliquid
+                saepe blanditiis? Id molestiae libero, harum voluptatum
+                voluptatem consequatur repellendus provident ad quasi beatae
+                accusantium hic!
+              </p>
+              <div className="w-full flex justify-center items-center gap-4">
+                <button
+                  type="button"
+                  className="w-64 flex justify-center items-center text-sm rounded-md px-2 py-1 bg-yellow-400 text-slate-950 font-medium hover:bg-yellow-200 mt-8 mb-4 transition ease-in-out delay-100"
+                >
+                  Get started
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       )}
