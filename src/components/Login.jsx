@@ -6,6 +6,8 @@ import { IoIosLock } from "react-icons/io";
 import { BiSolidUser } from "react-icons/bi";
 import { FiLogIn, FiLogOut } from "react-icons/fi";
 import planet from "../assets/purple-planet.png";
+import Spline from "@splinetool/react-spline";
+//<Spline scene="https://prod.spline.design/1XKTfRVswXCRzhWJ/scene.splinecode" />
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -131,8 +133,9 @@ const Login = () => {
           </div>
         </div>
       ) : (
-        <div className="justify-center items-center min-w-full min-h-screen bg-cover bg-no-repeat bg-center bg-[url('https://images.unsplash.com/photo-1566345984367-fa2ba5cedc17?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] w-4/5 h-[34em] flex flex-col md:flex-row justify-cnter items-centter py-4">
-          <div className="w-full flex flex-col justify-center items-center">
+        <div className="justify-center flex flex-col items-center min-w-full min-h-screen py-4">
+          <div className="w-full flex-col justify-center items-center">
+            <Spline scene="https://prod.spline.design/1XKTfRVswXCRzhWJ/scene.splinecode" />
             <h1 className="w-full text-center text-6xl md:text-8xl text-yellow-500 font-black uppercase tracking-wide p-5 m-2">
               Discover the wonders of the Universe
             </h1>
