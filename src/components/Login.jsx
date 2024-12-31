@@ -43,18 +43,17 @@ const Login = () => {
       {!logedIn ? (
         <div className="w-4/5 h-[48em] flex flex-col md:flex-row justify-center items-center backdrop-blur-md bg-slate-100/10 rounded-tr-2xl rounded-bl-2xl p-4">
           <div className="w-full flex flex-col justify-center items-center">
-            <div className="w-4/5 h-[18em] lg:w-full lg:h-[30em] flex justify-center items-center m-3">
+            <div className="w-full h-[18em] lg:w-full lg:h-[30em] flex justify-center items-center m-3">
               <Spline scene="https://prod.spline.design/WR530bub4gGY1J-O/scene.splinecode" />
             </div>
             <h1 className="w-3/4 text-center text-3xl text-slate-100 font-bold uppercase py-2">
-              It's time to take your website go next level
+              It's time to take your web development to the next level
             </h1>
 
             <p className="w-64 text-center text-sm text-slate-100">
               Please login to your account
             </p>
           </div>
-
           <div className="w-full flex flex-col justify-center items-center">
             <div className="w-64 flex justify-between items-center my-2">
               <h1 className="w-64 text-left text-lg font-bold tracking-wider text-slate-100">
