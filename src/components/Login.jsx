@@ -41,18 +41,21 @@ const Login = () => {
   return (
     <div className="w-screen min-h-screen flex justify-center items-center bg-gradient-to-r from-blue-800 to-indigo-900 overflow-hidden">
       {!logedIn ? (
-        <div className="w-4/5 h-[48em] flex flex-col md:flex-row justify-center items-center backdrop-blur-md bg-slate-100/10 rounded-tr-2xl rounded-bl-2xl p-4">
-          <div className="w-full flex flex-col justify-center items-center">
+        <div className="w-4/5 h-[54em] flex flex-col md:flex-row justify-center items-center backdrop-blur-md bg-slate-100/10 rounded-tr-2xl rounded-bl-2xl p-4">
+          <div className="w-full flex flex-col justify-center items-center m-4">
+            <h1 className="w-full text-center text-4xl sm:text-6xl text-slate-100 font-bold tracking-wider p-4">
+              It's time to take your web development to the{" "}
+              <span className="text-indigo-400 uppercase font-black">
+                next level
+              </span>
+            </h1>
+
+            <p className="w-64 text-center text-sm text-slate-100 p-2">
+              Please login to your account
+            </p>
             <div className="w-full h-[18em] lg:w-full lg:h-[30em] flex justify-center items-center m-3">
               <Spline scene="https://prod.spline.design/WR530bub4gGY1J-O/scene.splinecode" />
             </div>
-            <h1 className="w-3/4 text-center text-3xl text-slate-100 font-bold uppercase py-2">
-              It's time to take your web development to the next level
-            </h1>
-
-            <p className="w-64 text-center text-sm text-slate-100">
-              Please login to your account
-            </p>
           </div>
           <div className="w-full flex flex-col justify-center items-center">
             <div className="w-64 flex justify-between items-center my-2">
@@ -130,11 +133,11 @@ const Login = () => {
           </div>
         </div>
       ) : (
-        <div className="w-full h-full flex justify-center items-center m-2">
-          <div className="flex flex-col sm:flex-row bg-black justify-center items-center p-4">
-            <div className="w-[30em] h-[30em] lg:w-[50em] lg:h-[30em] flex flex-col justify-center items-center m-2">
+        <div className="w-full h-full flex justify-center items-center m-4">
+          <div className="flex flex-col lg:flex-row bg-black justify-center items-center p-2">
+            <div className="w-full h-[30em] lg:w-[50em] lg:h-[30em] flex flex-col justify-center items-center m-2 p-2">
               <button
-                className="w-full flex justify-end items-center text-sm  text-yellow-500 hover:text-slate-400 px-2 py-4"
+                className="w-full flex justify-end items-center text-sm  text-yellow-400 hover:text-yellow-500 px-2 py-4"
                 type="submit"
                 onClick={(e) => handleLogout(e)}
               >
@@ -146,13 +149,13 @@ const Login = () => {
               <Spline scene="https://prod.spline.design/1XKTfRVswXCRzhWJ/scene.splinecode" />
             </div>
             <div className="w-full flex flex-col justify-center items-center m-4 p-1">
-              <h1 className="w-full text-center text-6xl lg:text-7xl text-yellow-500 font-black uppercase tracking-wide p-5 m-2">
+              <h1 className="w-full text-center text-5xl lg:text-7xl text-yellow-500 font-black uppercase tracking-wider">
                 Making Static Webpages come to life
               </h1>
-              <h2 className="w-full text-center text-3xl lg:text-3xl text-slate-100 font-semibold italic tracking-wide p-2">
+              <h2 className="w-full text-center text-2xl lg:text-3xl text-slate-100 font-semibold italic tracking-wide p-3">
                 Using animation to enhance user experience{" "}
               </h2>
-              <p className="w-full lg:w-2/3 text-left text-base lg:text-lg  text-slate-100 text-pretty p-2">
+              <p className="w-3/4 lg:w-5/6 text-left text-base lg:text-lg  text-slate-100 text-pretty px-4">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae
                 excepturi vitae assumenda commodi perferendis veritatis, aliquid
                 saepe blanditiis? Id molestiae libero, harum voluptatum
@@ -162,7 +165,7 @@ const Login = () => {
               <div className="w-full flex justify-center items-center gap-4">
                 <button
                   type="button"
-                  className="w-64 flex justify-center items-center text-sm rounded-md px-2 py-1 bg-yellow-400 text-slate-950 font-medium hover:bg-yellow-200 mt-8 mb-4 transition ease-in-out delay-100"
+                  className="w-64 flex justify-center items-center text-sm rounded-md px-2 py-1 bg-yellow-400 text-slate-950 font-medium hover:bg-yellow-500 mt-8 mb-4 transition ease-in-out delay-100"
                 >
                   Get started
                 </button>
